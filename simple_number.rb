@@ -1,7 +1,7 @@
 class SimpleNumber
 
 	def initialize(num)
-		raise unless num.is_a?(Numeric)
+		raise ArgumentError, 'Argument is not numeric' unless num.is_a?(Numeric)
 		@x = num
 	end
 
@@ -19,5 +19,10 @@ class SimpleNumber
 
 	def divide(y)
 		@x/y
+	end
+
+	def divideByZero(num)
+		raise ArgumentError, 'Cannot Divide by zero' unless num == 0
+		@x/num
 	end
 end
