@@ -10,10 +10,11 @@ class TestSimpleNumber < Test::Unit::TestCase
 		assert_equal(8, SimpleNumber.new(10).subtract(2))
 		assert_equal(6, SimpleNumber.new(2).multiply(3))
 		assert_equal(2, SimpleNumber.new(6).divide(3))
-		assert_raise(ArgumentError){SimpleNumber.new(2).divideByZero(0)}
+#		assert_equal(2, SimpleNumber.new(6).divide(0))
 	end
 
-	def test_typecheck
+	def test_exceptions
+		assert_raise(ArgumentError){SimpleNumber.new(2).divideByZero(0)}
 		assert_raise( ArgumentError ){SimpleNumber.new('a')}
 	end
 
